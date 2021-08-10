@@ -1,0 +1,24 @@
+﻿<Window x:Class="H3_Simple_WebServer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:H3_Simple_WebServer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="326" Width="528">
+    <Grid Margin="0,10,10,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="26*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox HorizontalAlignment="Left" Margin="57,167,0,0" Text="C:\Users\Kenn5073\OneDrive - EFIF\Skrivebord\TestWebsite\" TextWrapping="Wrap" VerticalAlignment="Top" Width="362" Grid.Column="1" Height="18" Name="txt_contentPath" Grid.ColumnSpan="2"/>
+        <Label Content="Content Path (Root folder):" HorizontalAlignment="Left" Margin="45,136,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="152" Grid.ColumnSpan="2"/>
+        <Label Content="IP Address:" HorizontalAlignment="Left" Margin="58,51,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="68" Grid.ColumnSpan="2"/>
+        <Label Content="Port:" HorizontalAlignment="Left" Margin="239,51,0,0" VerticalAlignment="Top" Grid.Column="2" Height="26" Width="34" RenderTransformOrigin="0.206,0.732"/>
+        <Button Content="Start" HorizontalAlignment="Left" Margin="45,244,0,0" VerticalAlignment="Top" Width="95" Click="StartServer" Grid.Column="1" Height="20" Grid.ColumnSpan="2"/>
+        <Button Content="Stop" HorizontalAlignment="Left" Margin="200,244,0,0" VerticalAlignment="Top" Width="95" Click="StopServer" Grid.Column="2" Height="20"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="58,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" Height="22" Name="txt_IpAddress" Text="10.108.168.243" Grid.ColumnSpan="2"/>
+        <TextBox Grid.Column="2" HorizontalAlignment="Left" Margin="239,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68" Height="22" Name="txt_Port" Text="8080"/>
+    </Grid>
+</Window>
