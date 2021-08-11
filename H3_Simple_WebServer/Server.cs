@@ -76,14 +76,18 @@ namespace H3_Simple_WebServer
                             try { HandleRequest(clientSocket); }
                             catch
                             {
-                                try { clientSocket.Close(); } catch { }
+
+                            }
+                            finally
+                            {
+                                clientSocket.Close();
                             }
                         });
                         requestHandler.Start();
                     }
                     catch
                     {
-                        //clientSocket = null;
+                        clientSocket = null;
                     }
                 }
             });
@@ -96,13 +100,9 @@ namespace H3_Simple_WebServer
             if (running)
             {
                 running = false;
-                try
-                {
-                    serverSocket.Close();
-                }
-                catch
-                {
-                }
+
+                serverSocket.Close();
+
                 serverSocket = null;
             }
         }
@@ -208,10 +208,18 @@ namespace H3_Simple_WebServer
                         + "Content-Type: " + contentType + "\r\n\r\n");
                 clientSocket.Send(bHeader);
                 clientSocket.Send(content);
-                clientSocket.Close();
             }
             catch
             {
+                SendResponse(clientSocket, "<html><head><meta " +
+                "http - equiv =\"Content-Type\" content=\"text/html;" +
+                "charset = utf - 8\"></head><body><h2>Simple_K_WebServer" +
+                "Server </ h2 >< div > 500 - Internal server error </ div ></ body ></ html > ",
+                "404 Not Found", "text/html");
+            }
+            finally
+            {
+                clientSocket.Close();
             }
         }
     }
